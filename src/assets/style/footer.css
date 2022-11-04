@@ -1,0 +1,3 @@
+.grid-one-one-one-one {
+    grid-template-columns: repeat(4, 1fr);
+}

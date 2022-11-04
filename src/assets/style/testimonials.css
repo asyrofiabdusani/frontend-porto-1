@@ -1,0 +1,27 @@
+.bullet {
+    width: 7px;
+    height: 7px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.hide {
+    display: none;
+}
+.slide-hide {
+    animation: hide 1s forwards;
+}
+.slide-show {
+    animation: show 2500ms linear forwards;
+}
+
+@keyframes show {
+    0% {
+        display: block;
+        opacity: 0;
+        /* transform: translateX(2000px); */
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}

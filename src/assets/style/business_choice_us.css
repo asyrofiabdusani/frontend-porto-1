@@ -1,0 +1,6 @@
+.line-2 {
+    line-height: 2em;
+}
+.grid-one-one-one {
+    grid-template-columns: repeat(3, 1fr);
+}

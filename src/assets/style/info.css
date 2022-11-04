@@ -1,0 +1,9 @@
+.line-2 {
+    line-height: 2em;
+}
+.translateY-7 {
+    transform: translateY(-7em);
+}
+.logo-info {
+    width: 100px;
+}
