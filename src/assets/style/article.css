@@ -4,3 +4,17 @@
 .py-3px {
     padding: 7px 0;
 }
+
+@media screen and (max-width: 1023px) {
+    .grid-areas {
+        grid-template-areas:
+            "text-content"
+            "image-content";
+    }
+    .image-content {
+        grid-area: image-content;
+    }
+    .text-content {
+        grid-area: text-content;
+    }
+}

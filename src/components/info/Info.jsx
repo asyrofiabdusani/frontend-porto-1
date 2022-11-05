@@ -1,19 +1,17 @@
 import { Fragment } from "react";
 import "../../assets/style/info.css";
-import marketing from "../../assets/images/banner/services8.jpg";
-import marketingBanner from "../../assets/images/banner/services1.jpg";
 
-export default function Info() {
+export default function Info(props) {
+    const img = require(`../../assets/images/banner/${props.img_name}`);
+
     return (
         <Fragment>
-            <div className="d-flex flex-column align-center text-center">
-                <img src={marketing} alt="" className="logo-info" />
-                <h3>Lorem, ipsum dolor</h3>
-                <p className="line-2">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Soluta fuga rerum illum tempora et ducimus repellat ea
-                    consequuntur id minus
-                </p>
+            <div className={props.class}>
+                <div className="d-flex flex-column align-center text-center">
+                    <img src={img} alt="" className="logo-info mb-3" />
+                    <h3>{props.title}</h3>
+                    <p className="line-2">{props.content}</p>
+                </div>
             </div>
         </Fragment>
     );

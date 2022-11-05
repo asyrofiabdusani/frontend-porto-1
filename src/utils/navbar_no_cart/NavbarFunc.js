@@ -38,6 +38,18 @@ function menusHide(event) {
         "menus-hide"
     );
 }
+function invertLogo(event) {
+    event.target.parentNode.previousSibling.classList.remove(
+        "invert-element-back"
+    );
+    event.target.parentNode.previousSibling.classList.add("invert-element");
+}
+function invertLogoBack(event) {
+    event.target.parentNode.previousSibling.classList.remove("invert-element");
+    event.target.parentNode.previousSibling.classList.add(
+        "invert-element-back"
+    );
+}
 const NavbarFunction = {
     topHamburgerCheck,
     ctrHamburgerCheck,
@@ -47,6 +59,8 @@ const NavbarFunction = {
     btmHamburgerUncheck,
     menusShow,
     menusHide,
+    invertLogo,
+    invertLogoBack,
 };
 
 export default NavbarFunction;

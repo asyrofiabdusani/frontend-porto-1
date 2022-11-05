@@ -53,7 +53,7 @@ export default function Testimonials() {
                     prevSlides
                 ].classList.remove("bg-purple");
             }
-            if (count < 2) {
+            if (count < lastSlide) {
                 count++;
             } else {
                 count = 0;
@@ -64,30 +64,29 @@ export default function Testimonials() {
 
     return (
         <Fragment>
-            <div className="w-70 mr-auto d-flex flex-column just-center text-center">
-                <p>TESTIMONIALS</p>
-                <h1>What Our Clients Said</h1>
-                <div ref={carousel}>
-                    <TestimonialsContent
-                        comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, quo"
-                        name="Misha"
-                        city="Jakarta"
-                    />
-                    <TestimonialsContent
-                        comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, quo"
-                        name="Nadia"
-                        city="Pekalogan"
-                        class="hide"
-                    />
-                    <TestimonialsContent
-                        comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, quo"
-                        name="Nadin"
-                        city="Semarang"
-                        class="hide"
-                    />
-                </div>
-                <div className="d-flex just-center gap-1">{bullet}</div>
+            <div ref={carousel}>
+                <TestimonialsContent
+                    img_name="face.jpeg"
+                    comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, quo"
+                    name="Misha"
+                    city="Jakarta"
+                />
+                <TestimonialsContent
+                    img_name="images.jpeg"
+                    comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, quo"
+                    name="Pundit"
+                    city="Pekalongan"
+                    class="hide"
+                />
+                <TestimonialsContent
+                    img_name="face2.jpeg"
+                    comment="Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, quo"
+                    name="Broto"
+                    city="Semarang"
+                    class="hide"
+                />
             </div>
+            <div className="d-flex just-center gap-1">{bullet}</div>
         </Fragment>
     );
 }

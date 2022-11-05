@@ -1,27 +1,81 @@
+import { useEffect, useRef } from "react";
 import { Fragment } from "react";
 import "../../assets/style/business_choice_us.css";
-import marketing from "../../assets/images/banner/services8.jpg";
-import marketingBanner from "../../assets/images/banner/services1.jpg";
 import Info from "../info/Info";
 
 export default function BusinessChoiceUs() {
+    const listInfo = useRef();
+    let count = 1;
+
+    useEffect(() => {
+        const totalSlides = listInfo.current.childElementCount;
+        const lastSlide = totalSlides - 1;
+
+        if (window.screen.width < 1024) {
+            const interval = setInterval(() => {
+                if (count === 0) {
+                    listInfo.current.childNodes[count].classList.add(
+                        "list-show"
+                    );
+                    listInfo.current.childNodes[count].classList.remove(
+                        "list-info"
+                    );
+
+                    listInfo.current.childNodes[lastSlide].classList.remove(
+                        "list-show"
+                    );
+                    listInfo.current.childNodes[lastSlide].classList.add(
+                        "list-info"
+                    );
+                } else {
+                    let prevSlides = count - 1;
+                    listInfo.current.childNodes[count].classList.add(
+                        "list-show"
+                    );
+                    listInfo.current.childNodes[count].classList.remove(
+                        "list-info"
+                    );
+
+                    listInfo.current.childNodes[prevSlides].classList.remove(
+                        "list-show"
+                    );
+                    listInfo.current.childNodes[prevSlides].classList.add(
+                        "list-info"
+                    );
+                }
+                if (count < lastSlide) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+            }, 3000);
+            return () => clearInterval(interval);
+        }
+    }, []);
+
     return (
         <Fragment>
-            <div className=" w-70 mr-auto d-flex flex-column text-center">
-                <p>WHY BUSINESS CHOICE US</p>
-                <h1>Lorem, ipsum dolor</h1>
-                <p className="line-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Modi vero consectetur similique quam a voluptatem voluptate
-                    repellat harum voluptatibus minus, eius sunt necessitatibus
-                    dolores error? Consequuntur asperiores obcaecati
-                    perspiciatis consequatur explicabo
-                </p>
-                <div className="d-grid grid-one-one-one gap-2">
-                    <Info />
-                    <Info />
-                    <Info />
-                </div>
+            <div
+                className="d-grid grid-one-one-one just-center gap-5"
+                ref={listInfo}
+            >
+                <Info
+                    img_name="Home2.jpg"
+                    title="We're Loyal"
+                    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi vero consectetur similique quam a voluptatem voluptatez repellat harum voluptatibus minus"
+                />
+                <Info
+                    img_name="services7.jpg"
+                    title="We're Helpful"
+                    content="Consequuntur asperiores obcaecati perspiciatis consequatur explicabo"
+                    class="list-info"
+                />
+                <Info
+                    img_name="Home4.jpg"
+                    title="We're Flexible"
+                    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi vero  voluptate repellat harum voluptatibus minus"
+                    class="list-info"
+                />
             </div>
         </Fragment>
     );

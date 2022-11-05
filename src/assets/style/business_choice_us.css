@@ -4,3 +4,22 @@
 .grid-one-one-one {
     grid-template-columns: repeat(3, 1fr);
 }
+@media screen and (max-width: 1023px) {
+    .list-hide {
+        animation: hide 1s forwards;
+    }
+    .list-show {
+        animation: show 600ms linear forwards;
+    }
+
+    @keyframes show {
+        0% {
+            display: block;
+            opacity: 0;
+        }
+        100% {
+            display: block;
+            opacity: 1;
+        }
+    }
+}
